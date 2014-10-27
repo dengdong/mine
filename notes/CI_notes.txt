@@ -1,0 +1,187 @@
+CI NOTE:
+
+CI中的MVC
+	访问URL使用的是pathinfo
+	入口文件.php/controller/action
+
+	/application
+		controllers
+		models
+		views
+
+	默认控制器是welcome
+	默认动作时index
+
+控制器
+	1.控制器不需要加后缀直接是类名.php
+	2.文件名全部小写  例如 user.php
+	3.所有控制器，直接或间接继承自 CI_Controller类
+	4.控制器中，动作要求：
+		public
+		不能以下划线 _ 开头
+
+
+视图
+	1.在控制器中加载视图
+		//直接写视图名字，不写扩展名，如果有子目录，则写上目录名
+		$this->load->view(视图);
+		$this->load->view(视图); 可以多次调用$this->load->view(视图);
+	2.视图中，直接使用原生php代码
+	3.推荐使用
+		<?php foreach($list as $item ) ?>
+			<?=$item["id"] ?>
+		<?php endforeach; ?>
+
+
+超级对象
+	当前控制器对象
+	提供很多属性
+	$this->load
+		装载器类的实例 system/core/Loader.php
+		装载器提供方法
+		view() 装载视图
+		vars() 分配变量到视图
+		database() 装载数据库操作对象
+		model() 装载模型
+		helper() 加载
+
+	$this->uri
+		是Ci_Uri的实例  system/core/URI.php
+		CI_URI类提供方法：
+		segment(n) 用于获取url中的第n个参数(值)
+			入口文件.php/控制器/动作/值1/值2
+			//传统方式：入口文件.php/控制器/动作/参数1/值1/参数2/值2
+
+			echo $this->uri->segment(3);//值1
+			echo $this->uri->segment(4);//值2
+
+			//index.php/controller/index/6
+			public function index($p){ 
+				echo $p;//输出6
+			}
+
+	$this->input
+		CI_Input 的实例，system/core/Input.php
+
+		$this->input->post("username"); //$_POST['username']
+		$this->input->server("DOCUMENT_ROOT");//$_SERVEr['DOCUMENT_ROOT']
+
+
+	在视图中，直接用$this来访问超级对象
+
+
+数据库访问
+	修改配置文件
+	application/config/database.php
+
+	将数据库访问对象装载到超级对象的属性中 $this->db
+	$this->load->database();
+
+	$res =  $this->db->query($sql);//返回对象
+	$res->result();//返回数组，数组中是一个一个的对象
+	$res->result_array();//返回二维数组，里面是关联数组
+	$res->row();//返回第一行记录，直接是一个对象
+	$res->row_array();
+
+
+	参数绑定
+	$sql = "select * from blog_user where name = ? ";
+	$this->query($sql,$name); //如果有多个问号，需要传入一个索引数组
+
+	表前缀
+	$db['default']['dbprefix'] = 'blog_';
+	$db['default']['swap_pre'] = 'blog_';
+	配置为一样，代码中，直接硬编码表前缀，如果数据库表前缀发生变化，只需要修改
+	$db['default']['dbprefix'] = 'new_'; 代码中的‘blog_’会自动替换为‘new_’
+
+	db的自动加载
+		application/config/autoload.php
+		$autoload['libraries'] = array('database');
+
+		不需要： $this.load->database();
+
+	自增id
+		$this->db->insert_id();
+	受影响行数
+		$this->db->affected_rows();
+
+Active Record
+	1.application/config/database.php
+		$active_record= true;
+	2.application/config/autoload.php
+		$autoload['libraries'] = array('database');
+	3.配置文件中，配置表前缀后，会自动添加
+		$res = $this->db->get("表名");//返回结果集对象
+		$res ->result();
+
+		$bool = $this->db->insert('表名',关联数组);
+
+		$bool = $this->db->update('表名','关联数组',条件)
+
+		//连贯操作
+		//select id,name from tableName where id >=3 order by id desc limit 2,3
+		$this->db->select('id,name')
+				 ->from('user')
+				 ->where('id >=',3)
+				 ->limit(3,2) //跳过2条，取出3条
+				 ->order_by(' id desc')
+				 ->get();
+		 //显示最近一条SQL
+		 echo $this->db->last_query();
+
+
+		 //where
+		 //$res = $this->db->where('name','mary')->get('user');
+		 //$res = $this->db->where('name !=','mary')->get('user');
+		 //$res = $this->db->where(array('name'=>'mary'))->get('user');
+		 //$res = $this->db->where(array('name'=>'mary','id >'=>2))->get('user');
+
+		 复杂的查询，请用$this->db->query('$sql',$data);//使用问号绑定参数
+
+
+扩展CI控制器
+	application/core/MY_Controller.php
+	控制器就要以集成自MY_Controller.php
+
+	application/config/config.php
+	$config["subclass_prefix"]="MY_"
+
+
+模型
+	集成自CI_Model
+	在模型中，可以直接使用超级对象的属性
+	文件名，全小写
+	类名，首字母大写
+	建议使用_model作为后缀，防止和控制器类名冲突
+
+
+url相关函数
+	$this->load->helper("url");
+	//可以根据需要，配置自动加载
+	//application/config/autoload.php
+	//$autoload['helper']= array('url');
+	site_url('控制器/方法')
+	base_url()
+
+路由
+	application/config/routes.php
+	//默认控制器
+	$route['default_controller'] = "welcome";
+
+隐藏入口文件
+	开启apache的rewrite模块，在httpd.conf文件
+	LoadModule rewrite_module modules/mod_rewrite.so
+	重启Apache
+	在入口文件同级目录中，放入一个.htaccess文件
+	内容如下
+	<IfModule mod_rewrite.c>
+		RewriteEngine on
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteRule ^(.*)$ index.php/$1 [L]
+	</IfModule>
+
+
+分页
+
+文件上传
