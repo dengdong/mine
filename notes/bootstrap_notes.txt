@@ -1,0 +1,44 @@
+
+一、排版
+	标题   div.class$i*6
+	副标题 h1{标题}>small{副标题}
+	段落  p
+	强调	p.leap{强调}
+	粗体 b{粗体} strong{粗体}
+	斜体 em{斜体} i{斜体}
+	强调类名：
+		div.text-muted{提示}
+		div.text-primary{主要}
+		div.text-success{成功}
+		div.text-info{通知信息}
+		div.text-warning{警告}
+		text.danger{危险}
+	文本对其：
+		p.text-left{左对齐}
+		p.text-center{居中对齐}
+		p.text-right{右对齐}
+		p.text-justify{两端对齐}
+	列表
+		无序列表、有序列表 ul ol
+		去点列表 ul.list-unstyled
+		内连列表 ul.list-inline
+		定义列表 dl>dt{湖北}+dd{武汉}
+		水平定义列表 屏幕大于768px，水平定义列表
+			 dl.dl-horizontal>dt{湖北}+dd{荆州}+dd{宜昌}
+	 代码
+	 	code
+	 	pre
+	 	kbd
+	 	pre.pre-scrollable 控制高度最大为340px
+ 	表格
+ 		表格行的类 （table-hover 行悬浮时）
+ 			table.table.table-bordered.table-hover>(tr>th{类名}+th{描述})+(tr.active>td{active}+td{表示当前活动的信息})+(tr.success>td{success}+td{表示成功或正确的行为})+(tr.info>td{info}+td{表示中立的信息或行为})+(tr.warning>td{warning}+td{表示警告})+(tr.danger>td{danger}+td{表示危险或错误的行为})
+		基础表格 table.table>(tr>td{...}+td{.....})*3
+		斑马线表格 table.table.table-striped
+		带边框的表格 table.table.table-bordered
+		悬浮时高亮 table.table.table-hover
+		紧凑型表格 table.table.table-condensed
+		响应式表格 div.table-reponsive>table.table
+
+
+
