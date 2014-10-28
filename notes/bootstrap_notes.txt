@@ -164,6 +164,8 @@
 		form.navbar-form.navbar-left>(div.form-group>input.form-control[type=text placeholder=输入关键字])+button[type=submit].btn.btn-default{搜索}
 	固定导航条 .navbar-fixed-top/.navbar-fixed-bottom
 
+	响应式导航条
+		
 
 
 
