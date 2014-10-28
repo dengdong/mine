@@ -92,6 +92,41 @@
 
 
 三、网格系统
+	容器.container
+	行.row
+	列.col-xx-n    ---xx ->xs/sm/md/lg
+		div.container>div.row>(div.col-md-4)*3
+
+	偏移 col-md-offset-n 
+		div.container>div.row>row.col-md-4.col-md-offset-3
+	左右浮动
+		右 col-md-push-n
+		左 col-md-push-n
+	嵌套
+		div.container>div.row>div.col-md-8>div.row>div.col-md-6+div.col-md-6
+
+
+菜单
+	基本用法
+		div.dropdown>(button.btn.btn-default.dropdown-toggle[data-toggle=dropdown id=dropmenu1]{下拉菜单}>span.caret)+(ul.dropdown-menu[aria-labelledby=dropmenu1 role=menu]>(li[role=presentation]>a{下拉菜单项}[role=menuitem])*3)
+	下拉分隔线
+		li.divider
+	菜单标题
+		li.dropdown-header
+	对齐方式	pull-right/dropdown-menu-right/dropdown-menu-left
+		ul.dropdown-menu.pull-right
+	当前状态 li.active 
+	禁用 	 li.disabled
+按钮
+	按钮组 div.btn-group
+		div.btn-group>(button.btn.btn-default>span.glyphicon.glyphicon-step-backward)*5
+	按钮工具栏
+		div.btn-toolbar>(div.btn-group)*3
+		.btn-group-lg
+		.btn-group-sm
+		.btn-group-xs
+
+导航
 
 
 
