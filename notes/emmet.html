@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>
+1. E 代表HTML标签。
+<br />　　2. E#id 代表id属性。
+<br />　　3. E.class 代表class属性。
+<br />　　4. E[attr=foo] 代表某一个特定属性。
+<br />　　5. E{foo} 代表标签包含的内容是foo。
+<br />　　6. E>N 代表N是E的子元素。
+<br />　　7. E+N 代表N是E的同级元素。
+<br />　　8. E^N 代表N是E的上级元素。
+</p>
+ 	html:5  html:xt
+	p.bar#foo
+	<p class="bar" id="foo"></p>
+	h1{foo}
+	<h1>foo</h1>
+	a[href="#"]
+	<a href="#"></a>
+	h1+h2
+	<h1></h1>
+	<h2></h2>
+	p>span
+	<p><span></span></p>
+	p>span^p
+	<p><span></span></p>
+	<p></p>
+	(.foo>h1)+(.bar>h2)
+	<div class="foo">
+		<h1></h1>
+	</div>
+	<div class="bar">
+		<h2></h2>
+	</div>
+	.item
+	<div class="item"></div>
+	&lt;ul&gt;.item*4&lt;/ul&gt;
+	<ul>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+	<hr>
+	
+	lorem
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse doloribus quia minus eum, error necessitatibus animi, odit illum aspernatur sunt ullam debitis tenetur perspiciatis voluptas unde, mollitia temporibus enim earum.
+
+	header+main+footer
+	<header></header>
+	<main></main>
+	<footer></footer>
+	table>(thead>tr>td*5)(tbody>tr>td*5)
+	<table>
+		<thead>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+	nav>ul(li>a[href=#]{link$})*5
+	<nav>
+		<ul>
+			<li><a href="#">link1</a></li>
+		</ul>
+		<ul>
+			<li><a href="#">link2</a></li>
+		</ul>
+		<ul>
+			<li><a href="#">link3</a></li>
+		</ul>
+		<ul>
+			<li><a href="#">link4</a></li>
+		</ul>
+		<ul>
+			<li><a href="#">link5</a></li>
+		</ul>
+	</nav>
+	
+		nav>ul(li>a[href=#]{link})*5
+			<nav>
+				<ul>
+					<li><a href="#">link</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">link</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">link</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">link</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">link</a></li>
+				</ul>
+			</nav>
+	<h1>css</h1>
+</body>
+</html>

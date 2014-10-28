@@ -40,5 +40,59 @@
 		紧凑型表格 table.table.table-condensed
 		响应式表格 div.table-reponsive>table.table
 
+二、表单
+	水平表单 form.form-horizontal
+	内联表单 form.form-inline
+	输入框input form[role="form"]>div.form-group>input[type="email" placeholder="Enter email"].form-control
+	select    div.form-group>select.form-control>option{$}*5
+	textarea  form-control 设置宽度为100% 或者auto
+		div.form-group>textarea.class="form-control"[rows="3"]
+	checkbox radio
+		div.checkbox>label>input[type="checkbox"]+{文本}
+		(div.radio>label>input[type=radio name=radio id=radio$ value=$]+{value$})*2
+		水平排列
+		div.form-group>(label.checkbox-inline>input[type=checkbox value=op$]+{op$})*3
+		div.form-group>(label.radio-inline>input[type=radio value=op$ name=op]+{op$})*3
+	按钮 - button
+		input[type=button value=Default].btn+input[type=button value=Primary].btn.btn-primary+input[type=button value=info].btn.btn-info+input[type=button value=Success].btn.btn-success+input[type=button value=Warning].btn.btn-warning+input[type=button value=Danger].btn.btn-danger+input[type=button value=Inverse].btn.btn-inverse+input[type=button value=link].btn.btn-link
+		按钮大小
+			.btn-lg 变大
+			.btn-sm 变小
+			.btn-xs	超小
+		块状按钮
+			.btn-block
+		按钮状态 :hover  :active :focus
+		禁用  
+			button.btn.disabled
+			button.btn[disabled=disabled]
+	表单控件大小
+		input-sm 比正常小
+		input-lg 比正常大
+			input.form-control.input-lg[type=text placeholder=添加.input-lg，控件变大]
+			input.form-control.input-sm[type=text placeholder=添加.input-sm，控件变小]
+		宽度 --网格系统 
+			form.form-horizontal[role=form]>div.form-group>(div.col-xs-4>input.form-control.input-lg[type=text placeholder=.col-xs-4])*3
+	状态
+		has-warning [has-feedback]
+		has-error [has-feedback]
+		has-success [has-feedback]
+			div.form-group.has-error.has-feedback>label.control-label{邮箱}+input.form-control+span.help-block{输入有误}+span.glyphiconglyphicon-warning-sign.form-control-feedback
+	提示：help-block
+
+	图像：
+		.img-responseive 响应式图片
+		.img-rounded 圆角图片
+		.img-circle  圆形图片
+		.img-thumbnail 缩略图片
+
+		img.img-circle[art=img src=]
+	图标
+		span.glyphicon.glyphicon-search
+		span.glyphicon.glyphicon-xxx
+
+
+三、网格系统
+
+
 
 

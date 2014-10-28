@@ -1,96 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap的HTML标准模板</title>   
-        <!-- Bootstrap -->
-        
-        <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
-        <!--你自己的样式文件 -->
-             
-        <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="h1">Bootstrap标题1<small>我是副标题</small></div>
-        <div class="h2">Bootstrap标题2<small>我是副标题</small></div>
-        <div class="h3">Bootstrap标题3<small>我是副标题</small></div>
-        <div class="h4">Bootstrap标题4<small>我是副标题</small></div>
-        <div class="h5">Bootstrap标题5<small>我是副标题</small></div>
-        <div class="h6">Bootstrap标题6<small>我是副标题</small></div>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap的HTML标准模板</title>
+	<!-- Bootstrap -->
 
-        <p>普通文本</p>
-        <p class="leap">强调内容</p>
-        <b>粗体</b><strong>粗体</strong>
-        <em>斜体</em><i>斜体</i>
-		<div class="text-muted">提示</div>
-		<div class="text-primary">主要</div>
-		<div class="text-success">成功</div>
-		<div class="text-info">通知信息</div>
-		<div class="text-warning">警告</div>
-		<text class="danger">危险</text>
-		<p class="text-left">左对齐</p>
-		<p class="text-center">居中对齐</p>
-		<p class="text-right">右对齐</p>
-		<p class="text-justify">两端对齐</p>
-		<dl>
-			<dt>湖北</dt>
-			<dd>武汉</dd>
-		</dl>
-		<dl class="dl-horizontal">
-			<dt>湖北</dt>
-			<dd>荆州</dd>
-			<dd>宜昌</dd>
-		</dl>
-		<table class="table table-bordered table-hover">
-			<tr>
-				<th>类名</th>
-				<th>描述</th>
-			</tr>
-			<tr class="active">
-				<td>active</td>
-				<td>表示当前活动的信息</td>
-			</tr>
-			<tr class="success">
-				<td>success</td>
-				<td>表示成功或正确的行为</td>
-			</tr>
-			<tr class="info">
-				<td>info</td>
-				<td>表示中立的信息或行为</td>
-			</tr>
-			<tr class="warning">
-				<td>warning</td>
-				<td>表示警告</td>
-			</tr>
-			<tr class="danger">
-				<td>danger</td>
-				<td>表示危险或错误的行为</td>
-			</tr>
-		</table>
-		<table class="table">
-			<tr>
-				<td>...</td>
-				<td>.....</td>
-			</tr>
-			<tr>
-				<td>...</td>
-				<td>.....</td>
-			</tr>
-			<tr>
-				<td>...</td>
-				<td>.....</td>
-			</tr>
-		</table>
-		<table class="table table-bordered"></table>
-        <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
-        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
-        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
-    </body>
+	<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+	<!--你自己的样式文件 -->
+
+	<!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="h1">
+		Bootstrap标题1
+		<small>我是副标题</small>
+	</div>
+	<div class="h2">
+		Bootstrap标题2
+		<small>我是副标题</small>
+	</div>
+	<div class="h3">
+		Bootstrap标题3
+		<small>我是副标题</small>
+	</div>
+	<div class="h4">
+		Bootstrap标题4
+		<small>我是副标题</small>
+	</div>
+	<div class="h5">
+		Bootstrap标题5
+		<small>我是副标题</small>
+	</div>
+	<div class="h6">
+		Bootstrap标题6
+		<small>我是副标题</small>
+	</div>
+
+	<p>普通文本</p>
+	<p class="leap">强调内容</p> <b>粗体</b> <strong>粗体</strong> <em>斜体</em> <i>斜体</i>
+	<div class="text-muted">提示</div>
+	<div class="text-primary">主要</div>
+	<div class="text-success">成功</div>
+	<div class="text-info">通知信息</div>
+	<div class="text-warning">警告</div>
+	<text class="danger">危险</text>
+	<p class="text-left">左对齐</p>
+	<p class="text-center">居中对齐</p>
+	<p class="text-right">右对齐</p>
+	<p class="text-justify">两端对齐</p>
+	<dl>
+		<dt>湖北</dt>
+		<dd>武汉</dd>
+	</dl>
+	<dl class="dl-horizontal">
+		<dt>湖北</dt>
+		<dd>荆州</dd>
+		<dd>宜昌</dd>
+	</dl>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>类名</th>
+			<th>描述</th>
+		</tr>
+		<tr class="active">
+			<td>active</td>
+			<td>表示当前活动的信息</td>
+		</tr>
+		<tr class="success">
+			<td>success</td>
+			<td>表示成功或正确的行为</td>
+		</tr>
+		<tr class="info">
+			<td>info</td>
+			<td>表示中立的信息或行为</td>
+		</tr>
+		<tr class="warning">
+			<td>warning</td>
+			<td>表示警告</td>
+		</tr>
+		<tr class="danger">
+			<td>danger</td>
+			<td>表示危险或错误的行为</td>
+		</tr>
+	</table>
+	<table class="table">
+		<tr>
+			<td>...</td>
+			<td>.....</td>
+		</tr>
+		<tr>
+			<td>...</td>
+			<td>.....</td>
+		</tr>
+		<tr>
+			<td>...</td>
+			<td>.....</td>
+		</tr>
+	</table>
+	<form action="" role="form">
+		<div class="form-group">
+			<input type="email" placeholder="Enter email" class="form-control"></div>
+		<div class="form-group">
+			<select name="" id="" class="form-control">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+		</div>
+		<div class="checkbox">
+			<label for="">
+				<input type="checkbox">文本</label>
+		</div>
+		<div class="radio">
+			<label for="">
+				<input type="radio" name="radio" id="radio1" value="1">value1</label>
+		</div>
+		<div class="radio">
+			<label for="">
+				<input type="radio" name="radio" id="radio2" value="2">value2</label>
+		</div>
+
+		<div class="form-group">
+			<label for="" class="checkbox-inline">
+				<input type="checkbox" value="op1">op1</label>
+			<label for="" class="checkbox-inline">
+				<input type="checkbox" value="op2">op2</label>
+			<label for="" class="checkbox-inline">
+				<input type="checkbox" value="op3">op3</label>
+		</div>
+		<div class="form-group">
+			<label for="" class="radio-inline">
+				<input type="radio" value="op1" name="op">op1</label>
+			<label for="" class="radio-inline">
+				<input type="radio" value="op2" name="op">op2</label>
+			<label for="" class="radio-inline">
+				<input type="radio" value="op3" name="op">op3</label>
+		</div>
+		<input type="button" value="Default" class="btn">
+		<input type="button" value="Primary" class="btn btn-primary">
+		<input type="button" value="info" class="btn btn-info">
+		<input type="button" value="Success" class="btn btn-success">
+		<input type="button" value="Warning" class="btn btn-warning">
+		<input type="button" value="Danger" class="btn btn-danger">
+		<input type="button" value="Inverse" class="btn btn-inverse">
+		<input type="button" value="link" class="btn btn-link">
+		<input type="text" class="form-control input-lg" placeholder="添加.input-lg，控件变大">
+		<input type="text" class="form-control input-sm" placeholder="添加.input-sm，控件变小">
+		<div class="form-group has-error has-feedback">
+			<label for="" class="control-label">邮箱</label>
+			<input type="text" class="form-control">
+			<span class="help-block">input error</span>
+			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+		</div>
+	</form>
+	<form action="" class="form-horizontal" role="form">
+		<div class="form-group">
+			<div class="col-xs-4">
+				<input type="text" class="form-control input-lg" placeholder=".col-xs-4"></div>
+			<div class="col-xs-4">
+				<input type="text" class="form-control input-lg" placeholder=".col-xs-4"></div>
+			<div class="col-xs-4">
+				<input type="text" class="form-control input-lg" placeholder=".col-xs-4"></div>
+		</div>
+	</form>
+	<table class="table table-bordered"></table>
+	<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+	<!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
 </html>
