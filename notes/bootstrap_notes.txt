@@ -122,11 +122,50 @@
 		div.btn-group>(button.btn.btn-default>span.glyphicon.glyphicon-step-backward)*5
 	按钮工具栏
 		div.btn-toolbar>(div.btn-group)*3
-		.btn-group-lg
-		.btn-group-sm
-		.btn-group-xs
+		按钮组大小
+			.btn-group-lg
+			.btn-group-sm
+			.btn-group-xs
+	嵌套分组 .btngroup > dropdownmenu
+	垂直分组 div.btn-group-vertical
+	等分按钮 .btn-group-justified
+		div.btn-warp>div.btn-group.btn-group-justified>(a.btn.btn-default[href=#]{等分按钮})*5
+	按钮下拉菜单
+		div.btn-group>(button.btn.btndefault.dropdown-toggle[data-toggle=dropdown]{按钮下拉菜单}>span.caret)+(ul.dropdown-menu>(li>a[href=#]{按钮下拉菜单})*4)
+	按钮下拉菜单向上弹起 div.btn-group.dropup
+
 
 导航
+	基础样式 .nav
+		ul.nav.nav-tabs>(li>a[href=#]{tab$})*5
+		激活状态  li.active
+		禁用      li.disabled
+	tab
+
+	胶囊型pills  .nav.nav-pills
+		ul.nav.nav-pills(li>a[href='#']{tab$})*5
+
+	垂直堆叠 .nav.nav-pills.nav-stacked
+	分隔线 li.nav-divider
+	自适应 	.nav.nav-tabs.nav-justified
+	二级导航 
+		ul.nav.nav-pills>(li.active>a[href=#]{首页})+(li.dropdown>a[href=# data-toggle=dropdown]{教程}.dropdown-toggle>span.caret^(ul.dropdown-menu>(li>a[href=#]{css3})*3))
+	面包屑导航.breadcrunb
+		ol.breadcrumb>(li>a[href=#]{首页})+(li>a[href=#]{我的书})+(li.active{Cla via C#})
+
+导航条 
+	基础导航条
+		div.navbar.navbar-default>ul.nav.navbar-nav>(li.active>a{首页})+(li>a{其它页})*3
+	导航条标题 .navbar-header
+		div.navbar-header>a.navbar-brand{google}
+	二级菜单
+		div.navbar.navbar-default>(div.navbar-header>a.navbar-brand{google})+(ul.nav.navbar-nav>(li.active>a{首页})+(li.dropdown>(a.dropdown-toggle[data-toggle=dropdown]{语言}>span.caret)+(ul.dropdown-menu>(li>a{css}^li>a{java}^li.disabled>a{C#})))+li>a{联系})
+	导航条表单 .navbar-form
+		form.navbar-form.navbar-left>(div.form-group>input.form-control[type=text placeholder=输入关键字])+button[type=submit].btn.btn-default{搜索}
+	固定导航条 .navbar-fixed-top/.navbar-fixed-bottom
+
+
+
 
 
 
