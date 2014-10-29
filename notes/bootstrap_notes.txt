@@ -162,9 +162,31 @@
 		div.navbar.navbar-default>(div.navbar-header>a.navbar-brand{google})+(ul.nav.navbar-nav>(li.active>a{首页})+(li.dropdown>(a.dropdown-toggle[data-toggle=dropdown]{语言}>span.caret)+(ul.dropdown-menu>(li>a{css}^li>a{java}^li.disabled>a{C#})))+li>a{联系})
 	导航条表单 .navbar-form
 		form.navbar-form.navbar-left>(div.form-group>input.form-control[type=text placeholder=输入关键字])+button[type=submit].btn.btn-default{搜索}
+
 	固定导航条 .navbar-fixed-top/.navbar-fixed-bottom
 
-	响应式导航条
+	响应式导航条  
+
+	反色导航条 .navbar-inverse  默认.navbar-default
+
+	分页导航 
+		页码：
+			ul.pagination[.pagination-lg/.pagination-sm]>(li>a{$})*5
+			.pagination-lg 变大
+			.pagination-sm 变小
+		翻页
+			ul.pager>li>a{&laquo;上一页}^li>a{下一页&raquo;}
+			按钮靠左 li.previous
+			按钮靠右 li.next
+			禁用 li.disabled
+
+	标签
+		div>(h3{Example}>span.label.label-default{new})+span.label.label-default{默认}+span.label.label-primary{主要}+span.label.label-success{成功}+span.label.label-info{信息}+span.label.label-warning{警告}+span.label.label-danger{错误}
+
+	徽章
+		span.badge{42}
+
+
 		
 
 
