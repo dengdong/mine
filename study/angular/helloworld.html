@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head >
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js"></script>
+</head>
+<body>
+	Hello {{'World'}} 
+	<br />
+
+	Your name: <input type="text" ng-model="yourname" placeholder="World">
+	<br />
+	Hello {{yourname || 'World'}}
+ <br>
+
+	Your name: <input type="text" ng-model="yourname1" placeholder="World">
+        <br>
+    Hello {{yourname1 || 'World'}}!
+</body>
+</html>

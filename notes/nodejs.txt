@@ -1,0 +1,54 @@
+
+1.回调函数,node是异步时间驱动的平台，所以经常会用到回调函数
+
+setTimeout(function(){ 
+	console.log('callback is called');
+},2000);
+
+2.标准回调函数，2个参数，第一个参数为err，错误信息，第二个是data，为返回的数据
+function(err,data){ 
+}
+
+3.模块
+	os模块可提供操作系统的一些基本信息
+	var os = require('os');
+	var result = os.platform();
+
+4.process
+	全局内置对象，可以截获进程的异常、退出等时间，也可以获取进程的当前目录、环境变量，内存占用等信息，还可以执行进程退出、工作目录切换等操作。
+
+	process.cwd(); //查看应用程序当前目录
+	process.chdir('目录');//改变应用程序目录
+	process.stdout //标准输出流
+	process.stdin //进程的输入流
+
+		process.stdin.on('readable',function(){ 
+			var chunk = process.stdin.read();
+			if(chunk!= null){ 
+				process.stdout.write('data:' + chunk);
+			}
+		});
+
+	process.exit(code);//在程序内杀死进程，退出程序
+
+	设置编码:
+		process.stdin.setEncoding('utf8')
+		process.stdout.setEncoding('utf8')
+		process.stderr.setEncoding('utf8')
+
+5.文件I/O
+	fs 模块
+	var fs = require('fs');
+	写入文件 fs.writeFile(filename,data,callback)
+	追加 fs.appendFile(文件名，数据，编码，回调(err))
+	是否存爱 fs.exists(文件，回调函数(exists))
+	修改名称 fs.rename(oldfile,newfile,callback)
+	移动文件
+	读取文件 fs.readFile(filename,编码,callback(err,data))
+	删除文件 unlink(filename,callback(err))
+	创建目录  mkdir(path,权限，callback)
+	删除目录 rmdir(path,callback)
+	读取目录 readdir(path,callback(err,files))
+
+
+
