@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ezstuff">
+<head>
+	<meta charset="UTF-8">
+	<title>template</title>
+</head>
+<body>
+	<div ng-controller="ezCtrl">
+		<div ez-customer></div>
+	</div>
+	<script src="angular.min.js"></script>
+	<script>
+
+		angular.module("ezstuff",[])
+			.controller("ezCtrl",["$scope",function($scope){ 
+				$scope.customer={ 
+					name:"Naomi",
+					address:"1600 Amphitheatre"
+				};
+			}])
+			.directive("ezCustomer",function(){ 
+				return { 
+					restrict:"E",
+					replace:true,
+					template :"<div>Name:{{customer.name}} Address:{{customer.address}}</div>"
+				}
+			})
+	</script>
+</body>
+</html>

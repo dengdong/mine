@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<button id="bootstrap">手动引导</button>
+	<p>应该在下面看到一幅动画才对！</p>
+	<ez-duang></ez-duang>
+	<script>
+	/*
+	angular.element(document).ready(function(){ 
+		var e = document.querySelector("#bootstrap");
+		angular.element(e).bind('click',function(){ 
+			angular.bootstrap(document,['ezstuff']);
+		});
+	});
+	*/
+	//模拟引导启动过程
+	angular.element(document).ready(function(){ 
+		//第一步：创建注入器并保存到根对象的data中
+		var injector = angular.injector(["ng","ezstuff"]);
+		angular.element(document).data("$injector",injector);
+		//第二步：创建根作用域并保存到跟对象的data中
+		var rootScope = injector.get("$rootScope");
+		angular.element(document).data("$rootScope",rootScope);
+		//第三部：编译DOM树
+		var compile = injector.get("$compile");
+		compile(document)(rootScope);
+	});
+	angular.module("ezstuff",[])
+	.directive("ezDuang",function(){ 
+		return { 
+			restrict:"E",
+			template:"<img src='http://ww4.sinaimg.cn/bmiddle/757eb2ffjw1eptcr4qobjg209205dthh.gif' />"
+		};
+	});
+	</script>
+</body>
+</html>

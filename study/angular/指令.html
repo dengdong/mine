@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ezstuff">
+<head>
+	<meta charset="UTF-8">
+	<title>指令</title>
+
+</head>
+<body>
+	<span ez-hoverable>我是span</span>
+	<button ez-hoverable>我是button</button>
+	<div ez-hoverable>我是DIV</div>
+	<textarea ez-hoverable>我是TextArea</textarea>
+	<script src="angular.min.js"></script>
+	<script>
+	var ezHoverableFactory = function (){ 
+		return { 
+			restrict:"A",
+			link:function(scope,element,attrs){ 
+				element.bind("mouseover",function(){ 
+					element.css({outline:"#ff0000 dotted thick"});
+				});
+				element.bind("mouseout",function(){ 
+					element.css({outline:"none" });
+				});
+				
+			}
+		};
+	} 
+	angular.module("ezstuff",[])
+		.directive("ezHoverable",ezHoverableFactory);
+
+	</script>
+</body>
+</html>

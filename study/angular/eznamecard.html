@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="ezstuff" ng-init="sb={name:'somebody',gender:'male',age:28}">
+	<ez-namecard data="sb"></ez-namecard>
+	<ez-namecard-editor data="sb"></ez-namecard-editor>
+	<div ez-logger data="sb"></div>
+	<script>
+	angular.module("ezstuff",[])
+	.directive('ezNamecard',function(){ 
+		return { 
+			restrict:'E',
+			template:"<div class='namecard'>",
+			replace:true,
+			link:function(scope,element,attrs){ 
+				var sb = scope.$eval(attrs.data);
+				element.append("<div>name:<span class='name'>"+sb.name+"</span></div>")
+						.append("<div>gender:<span field='gender'>"+sb.gender+"</span></div>")
+						.append("<div>age:<span field='age'>"+sb.age+"</span></div>");
+
+				scope.$watch(attrs.data,function(nv,ov){
+					var fields = element.find('span');
+					fields[0].innerText = nv.name;
+					fields[1].innerText = nv.gender;
+					fields[2].innerText = nv.age;
+					//console.log(nv);
+				},true);
+
+				setInterval(function(){ 
+					scope.$apply("sb.age = sb.age+1;");
+				},1000);
+			}
+		}
+	})
+	.directive("ezNamecardEditor",function(){ 
+		return { 
+			restrict:'E',
+			template:"<ul class='nceditor'></ul>",
+			replace:true,
+			link:function(scope,element,attrs){ 
+				var model = attrs.data;//获得变量名称
+				//展开HTML模板，使用field属性标记对应字段
+				element.append("<li>name:<input type='text' field='name'><li>")
+					.append("<li>name:<input type='text' field='gender'><li>")
+					.append("<li>name:<input type='text' field='age'><li>");
+				//监听DOM事件，变化时修改变量值
+				console.log(element.find('input').on);
+				element.find('input').bind('keyup',function(ev){ 
+					var field = ev.target.getAttribute('field');
+					console.log(ev.target.value);
+					scope[model][field] = ev.target.value;
+					scope.$apply("");
+				});
+			}
+		}
+	})
+	.directive("ezLogger",function(){ 
+		return { 
+			restrict:'A',
+			link:function(scope,element,attrs){ 
+				var model = attrs.data;
+				scope.$watch(model,function(nv){ 
+					console.log(nv);
+					var cnt = JSON.stringify(nv,null,"  ");
+					element.html("<pre>"+ cnt+"</pre");
+				},true);
+			}
+		}
+	})
+	;
+	</script>
+	<style>
+		.namecard{
+			border : 1px solid #000;
+			border-radius : 10px;
+			padding:10px;
+			width:300px;
+			background:#f0f0f0;
+		}
+		ul.nceditor{
+			list-style:none;
+			padding:10px;
+			margin:0px;
+			width:300px;
+			border:1px solid #787878;
+			line-height:30px;
+		}
+	</style>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<div id="logger"></div>
+
+	<script>
+	//在ezstuff模块上登记一个服务ezHello
+	angular.module("ezstuff",[])
+	.provider('ezHello',function() { 
+		//$get方法时一个类工厂，返回服务的实例
+		this.$get = function(){ 
+			return 'hello world';
+		};
+	})
+
+	angular.element(document).ready(function(){ 
+		angular.injector(["ng","ezstuff"]).invoke(function(ezHello){ 
+			var e = document.querySelector('#logger');
+			angular.element(e).text(ezHello);
+		});
+	})
+
+	</script>
+</body>
+</html>

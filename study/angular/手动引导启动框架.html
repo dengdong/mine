@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+	<button id="bootstrap">手动引导</button>
+	<p>应该在下面看到一幅动画才对！</p>
+	<ez-duang></ez-duang>
+	<script>
+	angular.element(document).ready(function(){ 
+		var e = document.querySelector("#bootstrap");
+		angular.element(e).bind('click',function(){ 
+			angular.bootstrap(document,['ezstuff']);
+		});
+	});
+
+	angular.module("ezstuff",[])
+	.directive("ezDuang",function(){ 
+		return { 
+			restrict:"E",
+			template:"<img src='http://ww4.sinaimg.cn/bmiddle/757eb2ffjw1eptcr4qobjg209205dthh.gif' />"
+		};
+	});
+	</script>
+</body>
+</html>
