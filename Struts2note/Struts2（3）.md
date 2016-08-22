@@ -133,9 +133,32 @@
 	</package>
  
  ```
-   	
+ 
+ 拦截器的参数配置：
+ 
+ `maximumSize` 限制上传文件的大小。优先级比全局配置低
+ 
+ 限制上传文件的扩展名：
+ 
+ ```
+ <param name="fileUpload.allowedExtensions`>.bmp,.jpg,.png</param>
+ ```
+ 
+ `allowedTypes`限制上传文件的MIME类型，都好分割
+ 
 3. 多文件上传
+	
+	用数组
+
 4. 参数配置及不符合要求时的错误提示
+	a. 如果出现上传失败的情况，框架自动转向一个input视图逻辑
+	
+	b. 更改默认的消息提示
+	
+	第一步：创建新的资源文件，例如 fileuploadmessage.properties,放置在src下
+	
+	第二部：在struts.xml文件加载该资源文件
+	
 5. 文件下载：结果类型
 
 ###四、OGNL表达式
